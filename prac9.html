@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecycLoop - UI Animations (Prac 9)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f9f4;
+            color: #1b4332;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .banner-track {
+            background-color: #1b4332;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #52b788;
+            position: relative;
+        }
+
+        /* @keyframes: Starts at initial point (0%), slides across, and resets to initial point */
+        @keyframes slideRecycLoop {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(65%);
+            }
+        }
+
+        /* animation property with infinite repeat and normal direction (jumps back to initial point) */
+        .sliding-headline {
+            display: inline-block;
+            margin: 0;
+            font-size: 1.6rem;
+            color: #95d5b2;
+            animation-name: slideRecycLoop;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+
+        /* Hover pulse card animation */
+        .impact-card {
+            background: white;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #95d5b2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(27, 67, 50, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner-track">
+        <h1 class="sliding-headline">♻ RecycLoop Live Alert: 14,820 kg Diverted from Landfills!</h1>
+    </div>
+
+    <div class="impact-card">
+        <h2>Circular Loop Animation Events</h2>
+        <p>The headline above uses CSS <code>@keyframes</code> with <code>animation-iteration-count: infinite</code> and <code>animation-direction: normal</code> so that each cycle slides across and restarts cleanly from its initial point.</p>
+        <ul id="eventLog"></ul>
+    </div>
+</body>
+</html>
